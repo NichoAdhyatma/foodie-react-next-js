@@ -1,15 +1,16 @@
 Fast Food Delivery Project for Frontend Porotfoloio
 
 Using :
-1.React
-2.Nextjs
+1.React \n
+2.Nextjs \n
 3,Sanity.io
 
-Contribute
-1. install npm / yarn package
+Contribute to project : 
+
+1. install npm / yarn package ```npm install```
 2. run development server
 ```npm run dev``` 
------- or -------
+\n or \n
 ````yarn dev````
 
 
