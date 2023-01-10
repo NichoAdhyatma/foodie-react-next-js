@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  padding: 2rem;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 40%;
+  height: 25rem;
+  overflow: hidden;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+}
+
+.imageWrapper > span > img:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.2rem;
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+.right > :nth-child(2) {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--gray);
+}
+
+.size {
+  display: flex;
+  gap: 3rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.sizeVar {
+  display: flex;
+  gap: 0.6rem;
+  font-weight: normal;
+  color: var(--themeRed);
+  font-size: 0.8rem;
+}
+
+.sizeVar > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 1.5rem;
+  border: 2px solid var(--themeRed);
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+}
+
+.sizeVar > div:hover {
+  background-color: var(--themeRed);
+  color: white;
+  cursor: pointer;
+}
