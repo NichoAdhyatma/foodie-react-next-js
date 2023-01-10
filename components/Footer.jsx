@@ -1,4 +1,3 @@
-import React from "react";
 import css from "../styles/Footer.module.css";
 import { UilInstagram, UilGithub, UilFacebook } from "@iconscout/react-unicons";
 import logo from "../assets/Logo.png";

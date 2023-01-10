@@ -1,4 +1,3 @@
-import React from "react";
 import css from "../styles/Hero.module.css";
 import Cherry from "../assets/Cherry.png";
 import Image from "next/image";
