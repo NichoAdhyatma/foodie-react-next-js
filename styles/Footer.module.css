@@ -10,6 +10,7 @@
     rgba(255, 237, 237, 0.85) 0%,
     rgba(255, 255, 255, 0) 14rem
   );
+  padding: 1rem;
 }
 
 .container > span {

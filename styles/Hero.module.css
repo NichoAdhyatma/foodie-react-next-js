@@ -141,3 +141,74 @@
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
 }
+
+@media only screen and (max-width: 1440px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    position: static;
+  }
+
+  .imageContainer {
+    position: static;
+  }
+}
+
+
+@media only screen and (max-width: 840px) {
+  .contactUs {
+    left: 7rem;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .container {
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 556px) {
+  .imageContainer {
+    width: 90%;
+  }
+
+  .pizza {
+    left: 3rem;
+    bottom: 1rem;
+  }
+
+  .contactUs {
+    left: 1rem;
+  }
+
+  .heroText {
+    font-size: 3rem;
+  }
+}
+
+
+@media only screen and (max-width: 420px) {
+  .heroText {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .imageContainer {
+    width: 100%;
+  }
+
+  .pizza {
+    position: static;
+  }
+
+  .contactUs {
+    position: static;
+  }
+
+}

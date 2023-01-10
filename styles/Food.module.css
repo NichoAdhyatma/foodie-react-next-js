@@ -3,12 +3,14 @@
   padding: 2rem;
   gap: 5rem;
   margin-top: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .imageWrapper {
   position: relative;
-  width: 40%;
-  height: 25rem;
+  width: 27rem;
+  height: 30rem;
   overflow: hidden;
   border-radius: 2rem;
   -webkit-border-radius: 2rem;
@@ -26,12 +28,12 @@
 }
 
 .right {
-  flex: 1;
   display: flex;
   flex-direction: column;
   font-size: 2.2rem;
   font-weight: bold;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 .right > :nth-child(2) {
@@ -95,4 +97,21 @@
 .selected {
   background-color: var(--themeRed);
   color: white;
+}
+
+@media only screen and (max-width: 496px) {
+  
+
+  .size {
+    flex-direction: column;
+  }
+
+  .sizeVar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .imageWrapper {
+    height: 15rem;
+  }
 }

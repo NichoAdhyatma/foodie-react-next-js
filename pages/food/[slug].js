@@ -5,6 +5,9 @@ import css from "../../styles/Food.module.css";
 import leftArrow from "../../assets/arrowLeft.png";
 import rightArrow from "../../assets/arrowRight.png";
 import { useState } from "react";
+import { useStore } from "../../store/store";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Pizza = ({ pizza }) => {
   const src = urlFor(pizza.image).url();
@@ -18,6 +21,26 @@ const Pizza = ({ pizza }) => {
       : jumlah === 1
       ? null
       : setjumlah((prev) => prev - 1);
+  };
+
+  //add to cart
+  const addPizza = useStore((state) => state.addPizza);
+  const addToCart = () => {
+    addPizza({
+      ...pizza,
+      price: pizza.price[size],
+      quantity: jumlah,
+      size: size,
+    });
+    toast.success("Berhasil menambahkan.", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+    });
   };
 
   return (
@@ -91,8 +114,11 @@ const Pizza = ({ pizza }) => {
             </div>
           </div>
 
-          <div className={`btn ${css.btn}`}>Add to Cart!</div>
+          <div className={`btn ${css.btn}`} onClick={addToCart}>
+            Add to Cart!
+          </div>
         </div>
+        <ToastContainer />
       </div>
     </Layout>
   );
