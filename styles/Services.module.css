@@ -48,3 +48,10 @@
   width: 20rem;
   text-align: center;
 }
+
+@media only screen and (max-width: 337px) {
+  .feature > :nth-child(3) {
+    width: 15rem;
+  }
+}
+

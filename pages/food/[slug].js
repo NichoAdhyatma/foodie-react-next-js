@@ -33,13 +33,12 @@ const Pizza = ({ pizza }) => {
       size: size,
     });
     toast.success("Berhasil menambahkan.", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      theme: "colored",
     });
   };
 

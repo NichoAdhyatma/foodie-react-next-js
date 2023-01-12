@@ -154,7 +154,6 @@
   }
 }
 
-
 @media only screen and (max-width: 840px) {
   .contactUs {
     left: 7rem;
@@ -172,7 +171,7 @@
   }
 }
 
-@media only screen and (max-width: 556px) {
+@media only screen and (max-width: 606px) {
   .imageContainer {
     width: 90%;
   }
@@ -189,16 +188,27 @@
   .heroText {
     font-size: 3rem;
   }
-}
 
+  .miniText {
+    width: 80%;
+  }
+}
 
 @media only screen and (max-width: 420px) {
   .heroText {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .miniText {
+    width: 90%;
   }
 }
 
 @media only screen and (max-width: 370px) {
+  .heroText {
+    font-size: 2rem;
+  }
+
   .imageContainer {
     width: 100%;
   }
@@ -211,4 +221,7 @@
     position: static;
   }
 
+  .miniText {
+    width: 100%;
+  }
 }
