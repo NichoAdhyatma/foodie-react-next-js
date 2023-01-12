@@ -1,7 +1,8 @@
 .container {
   padding: 2rem;
-  display: grid;
-  grid-template-columns: 2.2fr 1fr;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
@@ -9,6 +10,11 @@
   width: 100%;
   border-spacing: 1rem;
   border-collapse: separate;
+  overflow-x: scroll;
+}
+
+.details {
+  overflow-x: auto;
 }
 
 .tbody > tr > td {
@@ -87,8 +93,14 @@
   padding: 0.8rem;
 }
 
-.btnGroup>:nth-child(1) {
+.btnGroup > :nth-child(1) {
   background-color: transparent;
   color: var(--themeRed);
   border: 2px solid var(--themeRed);
+}
+
+@media only screen and (max-width: 568px) {
+  .tbody {
+    overflow-x: scroll;
+  }
 }
