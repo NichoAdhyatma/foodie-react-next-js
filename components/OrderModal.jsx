@@ -1,6 +1,8 @@
 import { Modal, useMantineTheme } from "@mantine/core";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { createOrder } from "../lib/OrderHandler";
+import { useStore } from "../store/store";
 import css from "../styles/OrderModal.module.css";
 
 const OrderModal = ({ opened, setOpened, paymentMethod }) => {
@@ -14,21 +16,27 @@ const OrderModal = ({ opened, setOpened, paymentMethod }) => {
     }
   }, [opened]);
 
+  const resetCart = useStore((state) => state.resetCart);
+
   const handleInput = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    toast.success("Pesanan di proses", {
+    const id = await createOrder({ ...formData, total, paymentMethod });
+    toast.success(`Pesanan di proses dengan id pemesanan #${id}`, {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 5000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
     });
+    resetCart();
+    {
+      typeof window !== undefined && localStorage.setItem("order", id)
+    }
   };
 
   return (

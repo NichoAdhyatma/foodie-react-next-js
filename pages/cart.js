@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import OrderModal from "../components/OrderModal";
 
-export default function Cart(params) {
+export default function Cart() {
   const cartData = useStore((state) => state.cart);
   const removePizza = useStore((state) => state.removePizza);
   const [payment, setPayment] = useState(null);
@@ -29,7 +29,7 @@ export default function Cart(params) {
 
   const handleOnDelivery = () => {
     setPayment(0);
-    typeof window !== 'undefined' && localStorage.setItem("total", total());
+    typeof window !== "undefined" && localStorage.setItem("total", total());
   };
 
   return (
@@ -49,47 +49,48 @@ export default function Cart(params) {
             </thead>
 
             <tbody className={css.tbody}>
-              {cartData.pizzas.length > 0 ?
-                cartData.pizzas.map((pizza, index) => {
-                  const src = urlFor(pizza.image).url();
+              {cartData.pizzas.length > 0
+                ? cartData.pizzas.map((pizza, index) => {
+                    const src = urlFor(pizza.image).url();
 
-                  return (
-                    <tr key={index}>
-                      <td className={css.imageTd}>
-                        <Image
-                          loader={() => src}
-                          src={src}
-                          alt=""
-                          width={85}
-                          height={85}
-                          objectFit="cover"
-                        />
-                      </td>
+                    return (
+                      <tr key={index}>
+                        <td className={css.imageTd}>
+                          <Image
+                            loader={() => src}
+                            src={src}
+                            alt=""
+                            width={85}
+                            height={85}
+                            objectFit="cover"
+                          />
+                        </td>
 
-                      <td>{pizza.name}</td>
+                        <td>{pizza.name}</td>
 
-                      <td>
-                        {pizza.size === 0
-                          ? "Kecil"
-                          : pizza.size === 1
-                          ? "Sedang"
-                          : "Besar"}
-                      </td>
+                        <td>
+                          {pizza.size === 0
+                            ? "Kecil"
+                            : pizza.size === 1
+                            ? "Sedang"
+                            : "Besar"}
+                        </td>
 
-                      <td>{pizza.price}</td>
-                      <td>{pizza.quantity}</td>
-                      <td>{pizza.quantity * pizza.price}</td>
-                      <td>
-                        <span
-                          className={css.remove}
-                          onClick={() => handleRemove(index)}
-                        >
-                          x
-                        </span>
-                      </td>
-                    </tr>
-                  );
-                }) : "Cart Anda Kosong"}
+                        <td>{pizza.price}</td>
+                        <td>{pizza.quantity}</td>
+                        <td>{pizza.quantity * pizza.price}</td>
+                        <td>
+                          <span
+                            className={css.remove}
+                            onClick={() => handleRemove(index)}
+                          >
+                            x
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })
+                : "Cart Anda Kosong"}
             </tbody>
           </table>
         </div>
@@ -118,7 +119,11 @@ export default function Cart(params) {
       </div>
       <ToastContainer />
       {/* Modal */}
-      <OrderModal opened={payment === 0} setOpened={setPayment} paymentMethod={payment} />
+      <OrderModal
+        opened={payment === 0}
+        setOpened={setPayment}
+        paymentMethod={payment}
+      />
     </Layout>
   );
 }

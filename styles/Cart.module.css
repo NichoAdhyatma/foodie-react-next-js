@@ -98,9 +98,3 @@
   color: var(--themeRed);
   border: 2px solid var(--themeRed);
 }
-
-@media only screen and (max-width: 568px) {
-  .tbody {
-    overflow-x: scroll;
-  }
-}
