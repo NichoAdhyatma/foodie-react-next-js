@@ -5,10 +5,13 @@ import { urlFor } from "../lib/client";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import OrderModal from "../components/OrderModal";
 
 export default function Cart(params) {
   const cartData = useStore((state) => state.cart);
   const removePizza = useStore((state) => state.removePizza);
+  const [payment, setPayment] = useState(null);
   const handleRemove = (index) => {
     removePizza(index);
     toast.error("Barang dihapus.", {
@@ -23,6 +26,11 @@ export default function Cart(params) {
 
   const total = () =>
     cartData.pizzas.reduce((a, b) => a + b.quantity * b.price, 0);
+
+  const handleOnDelivery = () => {
+    setPayment(0);
+    typeof window !== 'undefined' && localStorage.setItem("total", total());
+  };
 
   return (
     <Layout>
@@ -41,7 +49,7 @@ export default function Cart(params) {
             </thead>
 
             <tbody className={css.tbody}>
-              {cartData.pizzas.length > 0 &&
+              {cartData.pizzas.length > 0 ?
                 cartData.pizzas.map((pizza, index) => {
                   const src = urlFor(pizza.image).url();
 
@@ -81,7 +89,7 @@ export default function Cart(params) {
                       </td>
                     </tr>
                   );
-                })}
+                }) : "Cart Anda Kosong"}
             </tbody>
           </table>
         </div>
@@ -101,12 +109,16 @@ export default function Cart(params) {
           </div>
 
           <div className={css.btnGroup}>
-              <button className="btn">Bayar di Tempat</button>
-              <button className="btn">Bayar Sekarang</button>
+            <button className="btn" onClick={handleOnDelivery}>
+              Bayar di Tempat
+            </button>
+            <button className="btn">Bayar Sekarang</button>
           </div>
         </div>
       </div>
       <ToastContainer />
+      {/* Modal */}
+      <OrderModal opened={payment === 0} setOpened={setPayment} paymentMethod={payment} />
     </Layout>
   );
 }
