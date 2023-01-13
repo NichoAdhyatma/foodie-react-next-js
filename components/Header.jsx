@@ -9,10 +9,15 @@ import { useEffect, useState } from "react";
 const Header = () => {
   const items = useStore((state) => state.cart.pizzas.length);
   const [order, setOrder] = useState("");
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     setOrder(localStorage.getItem("order"));
   }, []);
+
+  const handleHamburger = () => {
+    setActive(!active);
+  };
 
   return (
     <div className={css.header}>
@@ -24,10 +29,22 @@ const Header = () => {
 
       {/* Menu side*/}
       <ul className={css.menu}>
+        <Link href="../">
         <li>Home</li>
+        </Link>
         <li>Menu</li>
         <li>Contact</li>
       </ul>
+
+      <button
+        class={`hamburger hamburger--collapse ${active ? "is-active" : ""}`}
+        onClick={handleHamburger}
+        type="button"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
 
       {/* Right side */}
       <div className={css.rightSide}>

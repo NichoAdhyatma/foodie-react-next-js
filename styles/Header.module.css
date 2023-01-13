@@ -66,7 +66,10 @@
   font-size: 0.8rem;
 }
 
-@media only screen and (max-width: 497px) {
+@media only screen and (max-width: 579px) {
+  .logo>span {
+    display: none;
+  }
   .menu {
     display: none;
   }

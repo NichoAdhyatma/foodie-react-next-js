@@ -1,4 +1,4 @@
-import Head from "next/head";
+
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
@@ -10,12 +10,6 @@ export default function Home({ pizzas }) {
   return (
     <Layout>
       <div className={css.container}>
-        <Head>
-          <title>Foodie</title>
-          <meta name="description" content="Foodie App" />
-          <link rel="icon" href="/Logo.png" />
-        </Head>
-        {/* body */}
         <main>
           <Hero />
           <Services />

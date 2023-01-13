@@ -30,7 +30,10 @@
 
 .statusContainer {
   display: flex;
-  gap: 15rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 15rem;
+  row-gap: 5rem;
 }
 
 .status {
@@ -76,4 +79,49 @@
   padding: 0.5rem;
   font-size: 0.8rem;
   background-color: rgb(51, 129, 15);
+}
+
+@media only screen and (max-width: 760px) {
+  .details {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 726px) {
+  .statusContainer {
+    column-gap: 14rem;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .details {
+    width: 75%;
+  }
+
+  .statusContainer {
+    column-gap: 12rem;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .heading {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 398px) {
+  .details {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .statusContainer {
+    column-gap: 8rem;
+  }
 }
