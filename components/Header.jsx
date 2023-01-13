@@ -37,12 +37,12 @@ const Header = () => {
       </ul>
 
       <button
-        class={`hamburger hamburger--collapse ${active ? "is-active" : ""}`}
+        className={`hamburger hamburger--collapse ${active ? "is-active" : ""}`}
         onClick={handleHamburger}
         type="button"
       >
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
+        <span className="hamburger-box">
+          <span className="hamburger-inner"></span>
         </span>
       </button>
 
