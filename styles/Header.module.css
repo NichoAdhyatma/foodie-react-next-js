@@ -20,7 +20,7 @@
 }
 
 .menu {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 2rem;
   list-style: none;
@@ -66,7 +66,7 @@
   font-size: 0.8rem;
 }
 
-@media only screen and (max-width: 427px) {
+@media only screen and (max-width: 497px) {
   .menu {
     display: none;
   }
