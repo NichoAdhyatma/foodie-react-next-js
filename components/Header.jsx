@@ -30,11 +30,32 @@ const Header = () => {
       {/* Menu side*/}
       <ul className={css.menu}>
         <Link href="../">
-        <li>Home</li>
+          <li>Home</li>
         </Link>
         <li>Menu</li>
         <li>Contact</li>
       </ul>
+
+      <div className={`${css.menuMobile} ${active ? css.showMenu : ""}`}>
+        <button
+          className={`hamburger hamburger--collapse ${
+            active ? "is-active" : ""
+          }`}
+          onClick={handleHamburger}
+          type="button"
+        >
+          <span className="hamburger-box">
+            <span className="hamburger-inner"></span>
+          </span>
+        </button>
+        <div>
+          <Link href="../">
+            <div>Home</div>
+          </Link>
+          <div>Menu</div>
+          <div>Contact</div>
+        </div>
+      </div>
 
       <button
         className={`hamburger hamburger--collapse ${active ? "is-active" : ""}`}

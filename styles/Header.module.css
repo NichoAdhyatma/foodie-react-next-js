@@ -4,6 +4,7 @@
   justify-content: space-between;
   gap: 0.5rem;
   padding: 1rem;
+  position: relative;
 }
 
 .logo {
@@ -66,11 +67,62 @@
   font-size: 0.8rem;
 }
 
+.menuMobile {
+  display: none;
+  gap: 0.8rem;
+  padding: 1rem;
+  padding-bottom: 4rem;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  justify-content: center;
+  border-bottom-left-radius: 15rem;
+  border-bottom-right-radius: 15rem;
+  box-shadow: var(--shadow);
+  background-color: var(--pink);
+  overflow: hidden;
+  flex-wrap: wrap;
+  transform: translateY(-20rem);
+  -webkit-transform: translateY(-20rem);
+  -moz-transform: translateY(-20rem);
+  -ms-transform: translateY(-20rem);
+  -o-transform: translateY(-20rem);
+  align-items: center;
+  flex-direction: column;
+  z-index: 99999;
+}
+
+.menuMobile>div {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.showMenu {
+  transform: translateY(5rem);
+  -webkit-transform: translateY(5rem);
+  -moz-transform: translateY(5rem);
+  -ms-transform: translateY(5rem);
+  -o-transform: translateY(5rem);
+}
+
+.menuMobile>* {
+  padding: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 579px) {
   .logo>span {
     display: none;
   }
   .menu {
     display: none;
+  }
+
+  .menuMobile {
+    display: flex;
   }
 }
