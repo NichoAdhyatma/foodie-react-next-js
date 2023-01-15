@@ -7,11 +7,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import OrderModal from "../components/OrderModal";
+import { useRouter } from "next/router";
 
 export default function Cart() {
   const cartData = useStore((state) => state.cart);
   const removePizza = useStore((state) => state.removePizza);
   const [payment, setPayment] = useState(null);
+  const router = useRouter();
   const handleRemove = (index) => {
     removePizza(index);
     toast.error("Barang dihapus.", {
@@ -30,6 +32,24 @@ export default function Cart() {
   const handleOnDelivery = () => {
     setPayment(0);
     typeof window !== "undefined" && localStorage.setItem("total", total());
+  };
+
+  const handleCheckout = async () => {
+    typeof window !== "undefined" && localStorage.setItem("total", total());
+    setPayment(1);
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartData.pizzas),
+    });
+
+    if (response.status === 500) return;
+
+    const data = await response.json();
+    toast.loading("Redirecting...");
+    router.push(data.url);
   };
 
   return (
@@ -90,7 +110,7 @@ export default function Cart() {
                       </tr>
                     );
                   })
-                : "Cart Anda Kosong"}
+                : <span style={{ color: "red" }}>Anda tidak memiliki pesanan</span>}
             </tbody>
           </table>
         </div>
@@ -113,7 +133,9 @@ export default function Cart() {
             <button className="btn" onClick={handleOnDelivery}>
               Bayar di Tempat
             </button>
-            <button className="btn">Bayar Sekarang</button>
+            <button className="btn" onClick={handleCheckout}>
+              Bayar Sekarang
+            </button>
           </div>
         </div>
       </div>
