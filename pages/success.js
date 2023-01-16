@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "../components/Layout";
 import OrderModal from "../components/OrderModal";
 
-export default function success() {
+export default function Success() {
   const [payment, setPayment] = useState(1);
   return(
     <Layout>
